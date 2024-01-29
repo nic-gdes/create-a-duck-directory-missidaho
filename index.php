@@ -1,4 +1,6 @@
-<?php
+<!-- Data Server Practice -->
+
+<!-- <?php
 /******** CONNECT TO A DATABASE *********/
 
 $conn = mysqli_connect("db:3306", "db", "db", "db");
@@ -32,4 +34,7 @@ print_r($data);
     <?php foreach ($data as $name) : ?>
         <li><?php echo $name['first_name']; ?></li>
         <?php endforeach; ?>
-</ul>
+</ul> -->
+
+<?php include('./assets/components/header.php'); ?>
+<?php include('./assets/components/nav.php'); ?>
