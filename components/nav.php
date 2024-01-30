@@ -2,19 +2,26 @@
     <div>
         <a href="../index.php">
 
-            <img src="./assets/images/duck logo.png" height="20%" width="10%"> 
+            <img src="./assets/images/duck logo.png" width="100px">
         </a>
 
     </div>
-    <div class="nav_links">
+    <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+  
+
+
+
+</nav>
+<div class="nav_links">
         <div>
             <a href="../index.php">Home
             </a>
         </div>
         <div>
-            <a href="./contact.php">Contact</a>
+            <a href="./contact.php">Create a Duck</a>
         </div>
     </div>
-
-
-</nav>
