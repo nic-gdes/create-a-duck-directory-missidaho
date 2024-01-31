@@ -17,21 +17,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form_wrapper">
 
 
-                <div class="name_form">
+                <div class="name_form form_content">
                     <label for="name">
                         <h2>Name</h2>
                     </label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" required>
                 </div>
-                <div class="email_form">
+                <div class="email_form form_content">
                     <label for="email">
                         <h2>Favorite Foods, (separate multiples with commas.)</h2></label>
                     <input type="text" id="email" name="$email" required>
                 </div>
-                <div class="message_form">
+                <div class="message_form form_content">
                     <label for="message">
                         <h2>Message:</h2></label>
-                    <textarea id="message" name="message" rows="7"></textarea>
+                    <textarea id="message" name="message" rows="7" required></textarea>
                 </div>
 
 
