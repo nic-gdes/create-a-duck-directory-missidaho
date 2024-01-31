@@ -25,20 +25,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="email_form form_content">
                     <label for="email">
-                        <h2>Favorite Foods, (separate multiples with commas.)</h2></label>
+                        <h2>Favorite Foods, (separate multiples with commas.)</h2>
+                    </label>
                     <input type="text" id="email" name="$email" required>
                 </div>
                 <div class="message_form form_content">
                     <label for="message">
-                        <h2>Message:</h2></label>
+                        <h2>Biography:</h2>
+                    </label>
                     <textarea id="message" name="message" rows="7" required></textarea>
+                </div>
+                <div class="form_content">
+                    <label for="image">
+                        <h2>Upload you Duck Picture</h2>
+                    </label>
+                    <input type="file" id="image" name="$email" required>
                 </div>
 
 
 
 
 
-                <button input type="submit" class="submit_buuton"><h2>Submit</h2></button>
+                <button input type="submit" class="submit_button">
+                    <h2>Submit</h2>
+                </button>
             </div>
 
             </div>
@@ -50,6 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <?php include('./components/footer.php'); ?>
 
-<script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 
-</html>
+    </html>

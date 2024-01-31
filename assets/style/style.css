@@ -146,8 +146,11 @@ body {
 .grid_wrapper {
     display: flex;
     padding: 4rem;
-
+    flex-wrap: wrap;
     grid-gap: 3rem;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
 
 }
 .grid_align {
