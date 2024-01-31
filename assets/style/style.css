@@ -225,6 +225,13 @@ a {
     cursor: grab;
 }
 
+.profile_image_placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
 /* ---RESPONSIVNESS--- */
 @media screen and (max-width: 1180px) {
     .grid_wrapper {
@@ -246,11 +253,6 @@ a {
         align-items: center;
         justify-content: center;
     }
-    .profile_image_placeholder {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-    }
+   
 
 }
