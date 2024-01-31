@@ -17,11 +17,9 @@
 
 </nav>
 <div class="nav_links">
-        <div>
-            <a href="../index.php">Home
+      
+            <a href="./index.php">Home
             </a>
-        </div>
-        <div>
-            <a href="./contact.php">Create a Duck</a>
-        </div>
+    
+            <a href="./create-duck.php">Create a Duck</a>
     </div>
