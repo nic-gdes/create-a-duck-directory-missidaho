@@ -8,7 +8,7 @@
 
 <div class="grid_align">
             <div class="grid_wrapper">
-
+                <a class="profile_link" href="./profile.php">
                 <div>
                     <div class="grid_card">
                         <div class="grid_content">
@@ -24,6 +24,9 @@
 
                     </div>
                 </div>
+                </a>
+
+      
 
                 <div>
                     <div class="grid_card">
