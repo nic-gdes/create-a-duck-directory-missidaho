@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include('./config/db.php');
 
@@ -17,9 +17,10 @@ mysqli_close($conn);
 // echo count($ducks);
 // echo $ducks [0] ["name"];
 
-foreach($ducks as $duck) {
-
-}
+// foreach($ducks as $duck) {
+//     echo $duck['name'];
+//     echo $duck['favorite_foods'];
+// }
 
 ?>
 <?php include('./components/header.php'); ?>
@@ -33,117 +34,35 @@ foreach($ducks as $duck) {
 
 <div class="grid_align">
     <div class="grid_wrapper">
-        <a class="profile_link" href="./profile.php">
-            <div>
+
+
+        <div>
+
+
+
+
+            <?php foreach ($ducks as $duck) : ?>
                 <div class="grid_card">
-                    <div class="grid_content">
-                        <img src="./assets/images/2BirdRed.png.webp" alt="red duck rolling its eyes">
-                        <h2>Rosie Red</h2>
-                        <h3>Favorite Foods</h3>
-                        <ul>
-                            <li>Strawberries</li>
-                            <li>Pepperoni</li>
-                            <li>Ketchup</li>
-                        </ul>
-                    </div>
-
+                    <a class="profile_link" href="./profile.php">
+                        <div class="grid_content">
+                            <img src="<?php echo $duck["img_src"] ?>" height="75%" alt="red duck rolling its eyes">
+                            <h2><?php echo $duck["name"] ?></h2>
+                            <h3>Favorite Foods</h3>
+                            <ul>
+                                <li>Strawberries</li>
+                                <li>Pepperoni</li>
+                                <li>Ketchup</li>
+                            </ul>
+                        </div>
+                    </a>
                 </div>
-            </div>
-        </a>
+            <?php endforeach ?>
 
 
-
-        <div>
-            <div class="grid_card">
-                <div class="grid_content">
-                    <img src="./assets/images/tzb1ugmtuuuvnngt03tw.jpg.webp" alt="cool lookin rubber duck">
-                    <h2>Duckie Cool</h2>
-                    <h3>Favorite Foods</h3>
-                    <ul>
-                        <li>Hot Dog</li>
-                        <li>Hot Dog</li>
-                        <li>Hot Dog</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <div class="grid_card">
-                <div class="grid_content">
-                    <img src="./assets/images/tzb1ugmtuuuvnngt03tw.jpg.webp" alt="cool lookin rubber duck">
-                    <h2>Duckie Cool</h2>
-                    <h3>Favorite Foods</h3>
-                    <ul>
-                        <li>Hot Dog</li>
-                        <li>Hot Dog</li>
-                        <li>Hot Dog</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <div class="grid_card">
-                <div class="grid_content">
-                    <img src="./assets/images/tzb1ugmtuuuvnngt03tw.jpg.webp" alt="cool lookin rubber duck">
-                    <h2>Duckie Cool</h2>
-                    <h3>Favorite Foods</h3>
-                    <ul>
-                        <li>Hot Dog</li>
-                        <li>Hot Dog</li>
-                        <li>Hot Dog</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <div class="grid_card">
-                <div class="grid_content">
-                    <img src="./assets/images/tzb1ugmtuuuvnngt03tw.jpg.webp" alt="cool lookin rubber duck">
-                    <h2>Duckie Cool</h2>
-                    <h3>Favorite Foods</h3>
-                    <ul>
-                        <li>Hot Dog</li>
-                        <li>Hot Dog</li>
-                        <li>Hot Dog</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <div class="grid_card">
-                <div class="grid_content">
-                    <img src="./assets/images/tzb1ugmtuuuvnngt03tw.jpg.webp" alt="cool lookin rubber duck">
-                    <h2>Duckie Cool</h2>
-                    <h3>Favorite Foods</h3>
-                    <ul>
-                        <li>Hot Dog</li>
-                        <li>Hot Dog</li>
-                        <li>Hot Dog</li>
-                    </ul>
-                </div>
-
-            </div>
         </div>
 
-        <div>
-            <div class="grid_card">
-                <div class="grid_content">
-                    <img src="./assets/images/199060_600_600.jpg" alt="park range rubber duck">
-                    <h2>Sarge</h2>
-                    <h3>Favorite Foods</h3>
-                    <ul>
-                        <li>Steak</li>
-                        <li>Potatoes</li>
-                        <li>Wiskey </li>
-                    </ul>
-                </div>
 
-            </div>
-        </div>
+
     </div>
 </div>
 

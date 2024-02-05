@@ -1,3 +1,4 @@
+
 <footer>
 <?php
 // Prints the day
