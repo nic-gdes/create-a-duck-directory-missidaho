@@ -1,5 +1,30 @@
+<?php 
+
+include('./config/db.php');
+
+// create sql query
+$sql = "SELECT name,favorite_foods,img_src FROM ducks";
+
+//query the db and add the reslut to a php array
+$result = mysqli_query($conn, $sql);
+$ducks = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+//free result from memory and close SQL connection
+mysqli_free_result($result);
+mysqli_close($conn);
+
+// print_r($ducks);
+// echo count($ducks);
+// echo $ducks [0] ["name"];
+
+foreach($ducks as $duck) {
+
+}
+
+?>
 <?php include('./components/header.php'); ?>
 <?php include('./components/nav.php'); ?>
+
 
 <div class="hero">
     <img class="hero_image" src="./assets/images/advertising hero.jpg" alt="banner saying quackfest is coming to CDA">
