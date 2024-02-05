@@ -36,34 +36,38 @@ mysqli_close($conn);
     <div class="grid_wrapper">
 
 
-        <div>
 
 
 
 
-            <?php foreach ($ducks as $duck) : ?>
-                <div class="grid_card">
-                    <a class="profile_link" href="./profile.php">
-                        <div class="grid_content">
-                            <img src="<?php echo $duck["img_src"] ?>" height="75%" alt="red duck rolling its eyes">
-                            <h2><?php echo $duck["name"] ?></h2>
-                            <h3>Favorite Foods</h3>
-                            <ul>
-                                <li>Strawberries</li>
-                                <li>Pepperoni</li>
-                                <li>Ketchup</li>
-                            </ul>
-                        </div>
-                    </a>
-                </div>
-            <?php endforeach ?>
 
-
-        </div>
-
+        <?php foreach ($ducks as $duck) : ?>
+            <div class="grid_card">
+                <a class="profile_link" href="./profile.php">
+                    <div class="grid_content">
+                        <img src="<?php echo $duck["img_src"] ?>" height="75%" alt="red duck rolling its eyes">
+                        <h2><?php echo $duck["name"] ?></h2>
+                        <h3>Favorite Foods</h3>
+                        <?php 
+                        $foods_list = explode(",", $duck ["favorite_foods"]);
+                        ?>
+                        <ul>
+                            <?php foreach ($foods_list as $food) : ?>
+                                <li><?php echo $food ?></li>
+                                <?php endforeach ?>
+                   
+                        </ul>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach ?>
 
 
     </div>
+
+
+
+
 </div>
 
 <?php include('./components/footer.php'); ?>
