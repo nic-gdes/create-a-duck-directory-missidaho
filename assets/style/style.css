@@ -119,7 +119,7 @@ body {
 
 .grid_card {
     display: flex;
-    height: 500px;
+    height: 100%;
     width: 300px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     flex-direction: column;
@@ -275,6 +275,8 @@ a {
         display: flex;
         flex-direction: column;
     }
+   
+   
 
 }
 @media screen and (max-width: 892px) {
@@ -290,6 +292,4 @@ a {
         align-items: center;
         justify-content: center;
     }
-   
-
 }
