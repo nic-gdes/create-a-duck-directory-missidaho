@@ -17,23 +17,55 @@ if (isset($_POST['submit'])) {
         "bio" => ""
     );
 
-    $name = htmlspecialchars($_POST ["name"]);
-    $favorite_foods = htmlspecialchars($_POST ["favorite_foods"]);
-    $bio = htmlspecialchars($_POST ["bio"]);
+    $name = htmlspecialchars($_POST["name"]);
+    $favorite_foods = htmlspecialchars($_POST["favorite_foods"]);
+    $bio = htmlspecialchars($_POST["bio"]);
 
-    if(preg_match('/^[a-z\s]+$/', $name)) {
-        // echo "there is a name";
+    if (empty($name)) {
+        //if the name is empty
+        $errors['name'] = "A name is required.";
     } else {
-  $errors["name"] = "illegal characters";
+        if (!preg_match('/^[a-z\s]+$/i', $name)) {
+            // echo "there is a name";
+            $errors["name"] = "illegal characters";
+        }
     }
-    
-    if(preg_match('/^[a-z,\s]+$/', $favorite_foods)) {
-        // echo "there is a name";
+
+    if (empty($favorite_foods)) {
+        //if the name is empty
+        $errors['favorite_foods'] = "A food item is required.";
     } else {
-  $errors["name"] = "Must be separated by commas";
+        if (!preg_match('/^[a-z\s]+$/i', $name)) {
+            // echo "there is a name";
+            $errors["favorite_foods"] = "illegal characters";
+        }
     }
+
+    if (empty($bio)) {
+        //if the name is empty
+        $errors['bio'] = "A bio is required.";
+    }
+ if(!array_filter($errors)) {
+    //if there are any errors
+    header("Location: ./index.php");
+ } else {
     
-print_r($errors);
+ }
+    
+ 
+ // if (preg_match('/^[a-z\s]+$/', $name)) {
+    //     // echo "there is a name";
+    // } else {
+    //     $errors["name"] = "illegal characters";
+    // }
+
+    // if (preg_match('/^[a-z,\s]+$/', $favorite_foods)) {
+    //     // echo "there is a name";
+    // } else {
+    //     $errors["name"] = "Must be separated by commas";
+    // }
+
+
 }
 
 
@@ -51,19 +83,19 @@ print_r($errors);
                     <label for="name">
                         <h2>Name</h2>
                     </label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name">
                 </div>
                 <div class="email_form form_content">
                     <label for="email">
                         <h2>Favorite Foods, (separate multiples with commas.)</h2>
                     </label>
-                    <input type="text" id="email" name="favorite_foods" required>
+                    <input type="text" id="email" name="favorite_foods">
                 </div>
                 <div class="message_form form_content">
                     <label for="message">
                         <h2>Biography:</h2>
                     </label>
-                    <textarea id="message" name="bio" rows="7" required></textarea>
+                    <textarea id="message" name="bio" rows="7"></textarea>
                 </div>
                 <div class="form_content">
                     <label for="image">
@@ -77,7 +109,7 @@ print_r($errors);
 
 
                 <button input type="submit" value="Submit" class="submit_button" name="submit">
-            
+
                 </button>
             </div>
 
