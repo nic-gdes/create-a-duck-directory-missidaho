@@ -27,7 +27,12 @@ if (isset($_POST['submit'])) {
   $errors["name"] = "illegal characters";
     }
     
-echo $name;
+    if(preg_match('/^[a-z,\s]+$/', $favorite_foods)) {
+        // echo "there is a name";
+    } else {
+  $errors["name"] = "Must be separated by commas";
+    }
+    
 print_r($errors);
 }
 
