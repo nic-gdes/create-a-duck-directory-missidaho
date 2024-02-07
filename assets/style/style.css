@@ -64,7 +64,6 @@ color: white;
 button {
     width: 5rem;
     height: 3rem;
-    background: none;
 	color: inherit;
 	border: none;
 	padding: 0;
@@ -72,6 +71,7 @@ button {
 	cursor: pointer;
 	outline: inherit;
     padding-right: 2rem;
+    background-color: #85C7BE;
 
     
 }
