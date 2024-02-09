@@ -71,7 +71,7 @@ button {
 	cursor: pointer;
 	outline: inherit;
     padding-right: 2rem;
-    background-color: #85C7BE;
+    background-color: none;
 
     
 }
@@ -268,7 +268,26 @@ a {
     justify-content: center;
     text-align: center;
 }
+.error {
+    padding: .5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #F79362;
+}
 
+.submit_button {
+    width: 5rem;
+    height: 3rem;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    padding-right: 2rem;
+    color: #85C7BE;
+
+    
+}
 /* ---RESPONSIVNESS--- */
 @media screen and (max-width: 812px) {
     .grid_wrapper {

@@ -45,15 +45,14 @@ if (isset($_POST['submit'])) {
         //if the name is empty
         $errors['bio'] = "A bio is required.";
     }
- if(!array_filter($errors)) {
-    //if there are any errors
-    header("Location: ./index.php");
- } else {
-    
- }
-    
- 
- // if (preg_match('/^[a-z\s]+$/', $name)) {
+    if (!array_filter($errors)) {
+        //if there are any errors
+        header("Location: ./index.php");
+    } else {
+    }
+
+
+    // if (preg_match('/^[a-z\s]+$/', $name)) {
     //     // echo "there is a name";
     // } else {
     //     $errors["name"] = "illegal characters";
@@ -83,12 +82,28 @@ if (isset($_POST['submit'])) {
                     <label for="name">
                         <h2>Name</h2>
                     </label>
-                    <input type="text" id="name" name="name">
+                    <?php
+                    if (isset($errors['name'])) {
+
+                        echo "<div class = 'error'>" . $errors["name"] . "</div>";
+                    }
+
+
+                    ?>
+                    <input type="text" id="name" name="name" value="<?php if (isset($name)) { echo $name;} ?> >
                 </div>
-                <div class="email_form form_content">
+                <div class= "email_form form_content">
                     <label for="email">
                         <h2>Favorite Foods, (separate multiples with commas.)</h2>
                     </label>
+                    <?php
+                    if (isset($errors['favorite_foods'])) {
+
+                    echo "<div class='error'>" .$errors["favorite_foods"] ."</div>";
+                    }
+
+
+                    ?>
                     <input type="text" id="email" name="favorite_foods">
                 </div>
                 <div class="message_form form_content">
