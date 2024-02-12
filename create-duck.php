@@ -90,16 +90,18 @@ if (isset($_POST['submit'])) {
 
 
                     ?>
-                    <input type="text" id="name" name="name" value="<?php if (isset($name)) { echo $name;} ?> >
+                    <input type="text" id="name" name="name" value="<?php if (isset($name)) {
+                                                                        echo $name;
+                                                                    } ?> >
                 </div>
-                <div class= "email_form form_content">
+                <div class="email_form form_content">
                     <label for="email">
                         <h2>Favorite Foods, (separate multiples with commas.)</h2>
                     </label>
                     <?php
                     if (isset($errors['favorite_foods'])) {
 
-                    echo "<div class='error'>" .$errors["favorite_foods"] ."</div>";
+                        echo "<div class='error'>" . $errors["favorite_foods"] . "</div>";
                     }
 
 
@@ -110,8 +112,19 @@ if (isset($_POST['submit'])) {
                     <label for="message">
                         <h2>Biography:</h2>
                     </label>
+                    <?php
+                    if (isset($errors['bio'])) {
+
+                        echo "<div class='error'>" . $errors["bio"] . "</div>";
+                    }
+
+
+                    ?>
                     <textarea id="message" name="bio" rows="7"></textarea>
                 </div>
+                
+                
+                
                 <div class="form_content">
                     <label for="image">
                         <h2>Upload you Duck Picture</h2>
