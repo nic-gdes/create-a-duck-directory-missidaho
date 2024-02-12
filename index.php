@@ -3,7 +3,7 @@
 include('./config/db.php');
 
 // create sql query
-$sql = "SELECT name,favorite_foods,img_src FROM ducks";
+$sql = "SELECT name,favorite_foods, img_src FROM ducks";
 
 //query the db and add the reslut to a php array
 $result = mysqli_query($conn, $sql);

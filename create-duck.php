@@ -49,13 +49,13 @@ if (isset($_POST['submit'])) {
         //if there are any errors
         require('./config/db.php');
 
-// build sql query
-$sql = "INSERT INTO ducks(name, favorite_foods, bio) VALUES ('$name', '$favorite_foods', '$bio')";
+        // build sql query
+        $sql = "INSERT INTO ducks(name, favorite_foods, bio) VALUES ('$name', '$favorite_foods', '$bio')";
 
-// echo $sql;
-// execute quwry in my sql
-mysqli_query($conn, $sql);
-// load homepage
+        // echo $sql;
+        // execute quwry in my sql
+        mysqli_query($conn, $sql);
+        // load homepage
 
 
         header("Location: ./index.php");
@@ -101,11 +101,9 @@ mysqli_query($conn, $sql);
 
 
                     ?>
-                    <input type="text" id="name" name="name" value="<?php if (isset($name)) {
-                                                                        echo $name;
-                                                                    } ?> >
+                    <input type="text" id="name" name="name" value="<?php if (isset($name)) {echo $name;} ?> ">
                 </div>
-                <div class=" email_form form_content">
+                <div class="email_form form_content">
                     <label for="email">
                         <h2>Favorite Foods, (separate multiples with commas.)</h2>
                     </label>
