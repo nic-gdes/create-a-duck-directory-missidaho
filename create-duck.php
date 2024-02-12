@@ -47,6 +47,17 @@ if (isset($_POST['submit'])) {
     }
     if (!array_filter($errors)) {
         //if there are any errors
+        require('./config/db.php');
+
+// build sql query
+$sql = "INSERT INTO ducks(name, favorite_foods, bio) VALUES ('$name', '$favorite_foods', '$bio')";
+
+// echo $sql;
+// execute quwry in my sql
+mysqli_query($conn, $sql);
+// load homepage
+
+
         header("Location: ./index.php");
     } else {
     }
@@ -94,7 +105,7 @@ if (isset($_POST['submit'])) {
                                                                         echo $name;
                                                                     } ?> >
                 </div>
-                <div class="email_form form_content">
+                <div class=" email_form form_content">
                     <label for="email">
                         <h2>Favorite Foods, (separate multiples with commas.)</h2>
                     </label>
@@ -120,11 +131,11 @@ if (isset($_POST['submit'])) {
 
 
                     ?>
-                    <textarea id="message" name="bio" rows="7"></textarea>
+                    <textarea id="bio" name="bio" rows="7"></textarea>
                 </div>
-                
-                
-                
+
+
+
                 <div class="form_content">
                     <label for="image">
                         <h2>Upload you Duck Picture</h2>
