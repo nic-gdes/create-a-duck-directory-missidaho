@@ -14,12 +14,15 @@ if (isset($_POST['submit'])) {
     $errors = array(
         "name" => "",
         "favorite_foods" => "",
-        "bio" => ""
+        "bio" => "",
+        "img_src" => ""
     );
+
 
     $name = htmlspecialchars($_POST["name"]);
     $favorite_foods = htmlspecialchars($_POST["favorite_foods"]);
     $bio = htmlspecialchars($_POST["bio"]);
+    $img_src = $_FILES['img_src']["name"];
 
     if (empty($name)) {
         //if the name is empty
@@ -45,6 +48,34 @@ if (isset($_POST['submit'])) {
         //if the name is empty
         $errors['bio'] = "A bio is required.";
     }
+    //handle file upload directory
+    $target_dir = "./assets/images/";
+
+    //target uploaded image file
+    $image_file = $target_dir . basename($_FILES["img_src"]["name"]);
+    //get uploaded file extension so we can test to make sure it's an image
+    $image_file_type = strtolower(pathinfo($image_file, PATHINFO_EXTENSION));
+
+    //test image errors
+    //image exists
+    if (empty($img_src)) {
+        $errors["img_src"] = "An image is required";
+    } else {
+        //Check that the image file is an actual image
+        $size_check = getimagesize($_FILES["img_src"]["tmp_name"]);
+        if (!$size_check) {
+            $errors ["img_src"] = "File is not an image.";
+        }
+        //file type (if it's an image)
+        if($image_file_type !=  "jpg" && $image_file_type != "png" && $image_file_type != "jpeg" && $image_file_type != "gif" && $image_file_type != "webp") { $errors["img_src"] = "Sorry, only JPG, JPEG, PNG, GIF or WEBP files are allowed.";
+        //file size
+        $file_size = $_FILES["img_src"]["size"];
+        if ($file_size > 50000) {
+            $errors ["img_src"] = "File size exceeds limit. File cannot be larger than 500kb";
+        }
+        //check if file already exists
+    }
+
     if (!array_filter($errors)) {
         //if there are any errors
         require('./config/db.php');
@@ -58,7 +89,7 @@ if (isset($_POST['submit'])) {
         // load homepage
 
 
-        header("Location: ./index.php");
+        // header("Location: ./index.php");
     } else {
     }
 
@@ -77,7 +108,7 @@ if (isset($_POST['submit'])) {
 
 
 }
-
+}
 
 
 ?>
@@ -85,7 +116,7 @@ if (isset($_POST['submit'])) {
 <body>
 
     <main>
-        <form action="./create-duck.php" method="POST">
+        <form action="./create-duck.php" method="POST" enctype="multipart/form-data">
             <div class="form_wrapper">
 
 
@@ -101,7 +132,9 @@ if (isset($_POST['submit'])) {
 
 
                     ?>
-                    <input type="text" id="name" name="name" value="<?php if (isset($name)) {echo $name;} ?> ">
+                    <input type="text" id="name" name="name" value="<?php if (isset($name)) {
+                                                                        echo $name;
+                                                                    } ?> ">
                 </div>
                 <div class="email_form form_content">
                     <label for="email">
@@ -138,7 +171,7 @@ if (isset($_POST['submit'])) {
                     <label for="image">
                         <h2>Upload you Duck Picture</h2>
                     </label>
-                    <input type="file" id="image" name="$email">
+                    <input type="file" id="image" name="img_src">
                 </div>
 
 
