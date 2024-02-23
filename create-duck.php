@@ -62,52 +62,43 @@ if (isset($_POST['submit'])) {
         $errors["img_src"] = "An image is required";
     } else {
         //Check that the image file is an actual image
-        $size_check = getimagesize($_FILES["img_src"]["tmp_name"]);
+        $size_check = @getimagesize($_FILES["img_src"]["tmp_name"]);
+        $file_size = $_FILES["img_src"]["size"];
         if (!$size_check) {
-            $errors ["img_src"] = "File is not an image.";
+            $errors["img_src"] = "File is not an image.";
+        } else if ($file_size > 50000) {
+            $errors["img_src"] = "File size exceeds limit. File cannot be larger than 500kb";
         }
         //file type (if it's an image)
-        if($image_file_type !=  "jpg" && $image_file_type != "png" && $image_file_type != "jpeg" && $image_file_type != "gif" && $image_file_type != "webp") { $errors["img_src"] = "Sorry, only JPG, JPEG, PNG, GIF or WEBP files are allowed.";
-        //file size
-        $file_size = $_FILES["img_src"]["size"];
-        if ($file_size > 50000) {
-            $errors ["img_src"] = "File size exceeds limit. File cannot be larger than 500kb";
+
+        else if ($image_file_type !=  "jpg" && $image_file_type != "png" && $image_file_type != "jpeg" && $image_file_type != "gif" && $image_file_type != "webp") {
+            $errors["img_src"] = "Sorry, only JPG, JPEG, PNG, GIF or WEBP files are allowed.";
+            //file size
+
+            //check if file already exists
+        } else if (move_uploaded_file($_FILES["img_src"]["tmp_name"], $image_file)) {
+        } else {
+            $errors["img_src"] = "Sorry, there was an error uploading your file.";
         }
-        //check if file already exists
+
+
+        if (!array_filter($errors)) {
+            //if there are any errors
+            require('./config/db.php');
+
+            // build sql query
+            $sql = "INSERT INTO ducks(name, favorite_foods, bio, img_src) VALUES ('$name', '$favorite_foods', '$bio', 'img_src')";
+
+            // echo $sql;
+            // execute quwry in my sql
+            mysqli_query($conn, $sql);
+            // load homepage
+
+
+            // header("Location: ./index.php");
+        } else {
+        }
     }
-
-    if (!array_filter($errors)) {
-        //if there are any errors
-        require('./config/db.php');
-
-        // build sql query
-        $sql = "INSERT INTO ducks(name, favorite_foods, bio) VALUES ('$name', '$favorite_foods', '$bio')";
-
-        // echo $sql;
-        // execute quwry in my sql
-        mysqli_query($conn, $sql);
-        // load homepage
-
-
-        // header("Location: ./index.php");
-    } else {
-    }
-
-
-    // if (preg_match('/^[a-z\s]+$/', $name)) {
-    //     // echo "there is a name";
-    // } else {
-    //     $errors["name"] = "illegal characters";
-    // }
-
-    // if (preg_match('/^[a-z,\s]+$/', $favorite_foods)) {
-    //     // echo "there is a name";
-    // } else {
-    //     $errors["name"] = "Must be separated by commas";
-    // }
-
-
-}
 }
 
 
