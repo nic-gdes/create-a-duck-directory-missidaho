@@ -18,6 +18,10 @@ if (isset($_GET['id'])) {
     mysqli_close($conn);
 
     // print_r($duck);
+    // duck has a valid id
+   if(isset($duck["id"])) {
+    $duck_is_live = true;
+   }
 }
 
 
@@ -36,14 +40,9 @@ if (isset($_GET['id'])) {
                 <?php echo $duck['name']; ?>
             </h2>
             <h3>
+                Favorite Foods:
                 <?php echo $duck['favorite_foods'] ?>
             </h3>
-            <?php $food_list = explode(",", $duck["favorite foods"]); ?>
-            <!-- <ul>
-            <li>Strawberries</li>
-            <li>Pepperoni</li>
-            <li>Ketchup</li>
-        </ul> -->
             <p>
                 <?php echo $duck['bio'] ?>
             </p>
@@ -57,8 +56,18 @@ if (isset($_GET['id'])) {
 <?php endif ?>
 
 
+
 <?php include('./components/footer.php'); ?>
 
 <script src="./assets/js/script.js"></script>
+
+
+<form action="./index.php" method="POST">
+
+</form>
+
+if(isset("POST")) {
+    #id = $_POST('id_to_delete');
+}
 
 </html>
