@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
             require('./config/db.php');
 
             // build sql query
-            $sql = "INSERT INTO ducks(name, favorite_foods, bio, img_src) VALUES ('$name', '$favorite_foods', '$bio', 'img_src')";
+            $sql = "INSERT INTO ducks(name, favorite_foods, bio, img_src) VALUES ('$name', '$favorite_foods', '$bio', '$image_file')";
 
             // echo $sql;
             // execute quwry in my sql
