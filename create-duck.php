@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
         $file_size = $_FILES["img_src"]["size"];
         if (!$size_check) {
             $errors["img_src"] = "File is not an image.";
-        } else if ($file_size > 50000) {
+        } else if ($file_size > 500000) {
             $errors["img_src"] = "File size exceeds limit. File cannot be larger than 500kb";
         }
         //file type (if it's an image)
@@ -76,9 +76,6 @@ if (isset($_POST['submit'])) {
             //file size
 
             //check if file already exists
-        } else if (move_uploaded_file($_FILES["img_src"]["tmp_name"], $image_file)) {
-        } else {
-            $errors["img_src"] = "Sorry, there was an error uploading your file.";
         }
 
 
@@ -94,9 +91,14 @@ if (isset($_POST['submit'])) {
             mysqli_query($conn, $sql);
             // load homepage
 
+            if (move_uploaded_file($_FILES["img_src"]["tmp_name"], $image_file)) {
+            } else {
+                $errors["img_src"] = "Sorry, there was an error uploading your file.";
+            } 
 
             header("Location: ./index.php");
         } else {
+            print_r($errors);
         }
     }
 }
