@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $id_to_delete = (int)$_POST[$id_to_delete];
     $sql_delete = "DELETE FROM example WHERE id=$id_to_delete";
 
-    $delete_result = mysqli_query($conn, $sql);
+    mysqli_query($conn, $sql);
     header("./index.php");
 }
 
