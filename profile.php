@@ -4,6 +4,15 @@
 
 $duck_is_live = false;
 
+if (isset($_POST['submit'])) {
+    $id_to_delete = (int)$_POST[$id_to_delete];
+    $sql_delete = "DELETE FROM example WHERE id=$id_to_delete";
+
+    $delete_result = mysqli_query($conn, $sql);
+    header("./index.php");
+}
+
+
 if (isset($_GET['id'])) {
     $id = htmlspecialchars($_GET['id']);
 
@@ -22,11 +31,6 @@ if (isset($_GET['id'])) {
     if (isset($duck["id"])) {
         $duck_is_live = true;
     }
-}
-if (isset($_POST['submit'])) {
-    $id_to_delete = $_POST[$id_to_delete];
-    $sql = "DELETE FROM example WHERE id=$id";
-
 }
 
 
@@ -52,14 +56,14 @@ if (isset($_POST['submit'])) {
             <p>
                 <?php echo $duck['bio'] ?>
             </p>
-            <form action="./index.php" method="POST">
-                <input type="hidden" name="id_to_delete" placeholder="ID to delete" required value="<?php echo $id; ?>" />
-                <input type="submit" value="Delete" name="submit" />
-            </form>
+
         </div>
     </div>
 
-
+    <form action="./profile.php" method="POST">
+        <input type="hidden" name="id_to_delete" placeholder="ID to delete" required value="<?php echo $id; ?>" />
+        <input type="submit" value="Delete" name="submit" />
+    </form>
 <?php else : ?>
     <section class="non-duck">
         <h1>Sorry, this duck does not exist!</h1>
