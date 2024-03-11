@@ -19,10 +19,16 @@ if (isset($_GET['id'])) {
 
     // print_r($duck);
     // duck has a valid id
-   if(isset($duck["id"])) {
-    $duck_is_live = true;
-   }
+    if (isset($duck["id"])) {
+        $duck_is_live = true;
+    }
 }
+if (isset($_POST['submit'])) {
+    $id_to_delete = $_POST[$id_to_delete];
+    $sql = "DELETE FROM example WHERE id=$id";
+
+}
+
 
 
 ?>
@@ -46,8 +52,13 @@ if (isset($_GET['id'])) {
             <p>
                 <?php echo $duck['bio'] ?>
             </p>
+            <form action="./index.php" method="POST">
+                <input type="hidden" name="id_to_delete" placeholder="ID to delete" required value="<?php echo $id; ?>" />
+                <input type="submit" value="Delete" name="submit" />
+            </form>
         </div>
     </div>
+
 
 <?php else : ?>
     <section class="non-duck">
@@ -62,12 +73,8 @@ if (isset($_GET['id'])) {
 <script src="./assets/js/script.js"></script>
 
 
-<form action="./index.php" method="POST">
 
-</form>
 
-if(isset("POST")) {
-    #id = $_POST('id_to_delete');
-}
+
 
 </html>
