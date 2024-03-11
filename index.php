@@ -3,7 +3,7 @@
 include('./config/db.php');
 
 // create sql query
-$sql = "SELECT name,favorite_foods, img_src FROM ducks";
+$sql = "SELECT id, name ,favorite_foods, img_src FROM ducks";
 
 //query the db and add the reslut to a php array
 $result = mysqli_query($conn, $sql);
@@ -43,7 +43,7 @@ mysqli_close($conn);
 
         <?php foreach ($ducks as $duck) : ?>
             <div class="grid_card">
-                <a class="profile_link" href="./profile.php">
+                <a class="profile_link" href="./profile.php?id= <?php echo $duck["id"] ?>">
                     <div class="grid_content">
                         <img src="<?php echo $duck["img_src"] ?>" height="75%" alt="red duck rolling its eyes">
                         <h2><?php echo $duck["name"] ?></h2>

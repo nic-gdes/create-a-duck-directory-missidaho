@@ -2,21 +2,22 @@
 <?php include('./components/nav.php'); ?>
 <?php
 
+require('./config/db.php');
 $duck_is_live = false;
 
 if (isset($_POST['submit'])) {
-    $id_to_delete = (int)$_POST[$id_to_delete];
-    $sql_delete = "DELETE FROM example WHERE id=$id_to_delete";
+    $id_to_delete = (int)$_POST["id_to_delete"];
+    $sql_delete = "DELETE FROM ducks WHERE id='$id_to_delete'";
 
-    mysqli_query($conn, $sql);
-    header("./index.php");
+    mysqli_query($conn, $sql_delete);
+    header ("Location: ./index.php");
 }
 
 
 if (isset($_GET['id'])) {
     $id = htmlspecialchars($_GET['id']);
 
-    require('./config/db.php');
+
 
     $sql = "SELECT id, name, favorite_foods, bio, img_src FROM ducks WHERE id=$id";
     $result = mysqli_query($conn, $sql);
@@ -64,7 +65,8 @@ if (isset($_GET['id'])) {
         <input type="hidden" name="id_to_delete" placeholder="ID to delete" required value="<?php echo $id; ?>" />
         <input type="submit" value="Delete" name="submit" />
     </form>
-<?php else : ?>
+
+    <?php else : ?>
     <section class="non-duck">
         <h1>Sorry, this duck does not exist!</h1>
     </section>

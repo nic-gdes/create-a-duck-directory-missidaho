@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
     $name = htmlspecialchars($_POST["name"]);
     $favorite_foods = htmlspecialchars($_POST["favorite_foods"]);
     $bio = htmlspecialchars($_POST["bio"]);
-    $img_src = $_FILES['img_src']["name"];
+    $img_src = $_FILES['img_src'];
 
     if (empty($name)) {
         //if the name is empty
@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
             // load homepage
 
 
-            // header("Location: ./index.php");
+            header("Location: ./index.php");
         } else {
         }
     }
