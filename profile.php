@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     $sql_delete = "DELETE FROM ducks WHERE id='$id_to_delete'";
 
     mysqli_query($conn, $sql_delete);
-    header ("Location: ./index.php");
+    header("Location: ./index.php");
 }
 
 
@@ -57,16 +57,16 @@ if (isset($_GET['id'])) {
             <p>
                 <?php echo $duck['bio'] ?>
             </p>
-
+            <form action="./profile.php" method="POST">
+                <input type="hidden" name="id_to_delete" placeholder="ID to delete" required value="<?php echo $id; ?>" />
+                <input type="submit" value="Delete" name="submit" />
+            </form>
         </div>
     </div>
 
-    <form action="./profile.php" method="POST">
-        <input type="hidden" name="id_to_delete" placeholder="ID to delete" required value="<?php echo $id; ?>" />
-        <input type="submit" value="Delete" name="submit" />
-    </form>
 
-    <?php else : ?>
+
+<?php else : ?>
     <section class="non-duck">
         <h1>Sorry, this duck does not exist!</h1>
     </section>

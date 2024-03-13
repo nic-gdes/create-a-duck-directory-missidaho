@@ -71,7 +71,7 @@ button {
 	cursor: pointer;
 	outline: inherit;
     padding-right: 2rem;
-    background-color: none;
+    background-color:#F79362;
 
     
 }
@@ -207,7 +207,6 @@ footer {
     align-content: center;
     align-items: center;
     justify-content: center;
-    position: relative;
     padding-top: 2rem;
     padding-bottom: 2rem;
     /* margin: 2rem; */
@@ -274,17 +273,13 @@ a {
     color: #F79362;
 }
 
-.submit_button {
+input[type=submit] {
     width: 5rem;
     height: 3rem;
-	color: inherit;
 	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-    padding-right: 2rem;
-    color: #85C7BE;
+    color: white;
+    background-color: #F79362;
+
 
     
 }

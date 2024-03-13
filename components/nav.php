@@ -6,20 +6,20 @@
         </a>
 
     </div>
-    <button class="hamburger">
+    <div class="hamburger">
         <span></span>
         <span></span>
         <span></span>
-    </button>
-  
+    </div>
+
 
 
 
 </nav>
 <div class="nav_links">
-      
-            <a href="./index.php">Home
-            </a>
-    
-            <a href="./create-duck.php">Create a Duck</a>
-    </div>
+
+    <a href="./index.php">Home
+    </a>
+
+    <a href="./create-duck.php">Create a Duck</a>
+</div>
