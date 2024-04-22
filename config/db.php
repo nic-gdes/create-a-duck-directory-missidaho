@@ -5,9 +5,9 @@
 $conn = mysqli_connect("db:3306", "root", "root", "db");
 
 //verify connection with mysqli
-if(mysqli_connect_errno ()) {
-    echo "Database error: ". mysqli_connect_errno ();
-    exit();
-}
+// if(mysqli_connect_errno ()) {
+//     echo "Database error: ". mysqli_connect_errno ();
+//     exit();
+// }
 
 ?>
